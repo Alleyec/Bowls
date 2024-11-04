@@ -1,3 +1,6 @@
+Here is the updated `index.html` with mobile-friendly adjustments:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,47 +25,62 @@
         .game-container {
             text-align: center;
             position: relative;
+            padding: 10px;
+            width: 100%;
         }
 
         h1 {
             color: #5c4f3a;
+            font-size: 5vw; /* Responsive font size */
         }
 
         .bowls {
             display: grid;
-            grid-template-columns: repeat(3, 150px);
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 10px;
             margin: 20px auto;
+            width: 100%;
+            max-width: 600px;
         }
 
         .bowl {
-            width: 150px;
-            height: 150px;
+            width: 100%;
+            padding-top: 100%; /* Aspect ratio 1:1 */
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s, background-color 0.3s;
+            position: relative;
+            background-size: cover; /* Ensure the texture covers the bowl */
+            background-position: center; /* Center the texture */
         }
 
-        /* Different earthy colors for each bowl */
-        #bowl1 { background-color: #8B5A2B; }
-        #bowl2 { background-color: #A0522D; }
-        #bowl3 { background-color: #6B4226; }
-        #bowl4 { background-color: #D2B48C; }
-        #bowl5 { background-color: #CD853F; }
-        #bowl6 { background-color: #8B4513; }
+        .bowl > * {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Different textures for each bowl */
+        #bowl1 { background-image: url('textures/texture1.jpg'); }
+        #bowl2 { background-image: url('textures/texture2.jpg'); }
+        #bowl3 { background-image: url('textures/texture3.jpg'); }
+        #bowl4 { background-image: url('textures/texture4.jpg'); }
+        #bowl5 { background-image: url('textures/texture5.jpg'); }
+        #bowl6 { background-image: url('textures/texture6.jpg'); }
 
         /* Illuminating effect when activated */
         .bowl.active {
             transform: scale(1.1);
-            background-color: #f7e7ce;
+            background-color: rgba(255, 255, 255, 0.5); /* Lighten the texture */
         }
 
         button {
             padding: 10px 20px;
-            font-size: 16px;
+            font-size: 4vw; /* Responsive font size */
             background-color: #5c4f3a;
             color: white;
             border: none;
@@ -86,7 +104,7 @@
             color: #f7e7ce;
             padding: 20px;
             border-radius: 8px;
-            font-size: 24px;
+            font-size: 6vw; /* Responsive font size */
             animation: fadeInOut 2s ease;
         }
 
@@ -202,3 +220,6 @@
     </script>
 </body>
 </html>
+```
+
+Would you like to proceed with these changes and commit them to your repository?
